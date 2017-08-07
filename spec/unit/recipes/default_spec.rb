@@ -18,5 +18,20 @@ describe 'agree_io::default' do
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
     end
+
+    it 'installs ruby runtime' do
+      expect(chef_run).to include_recipe('poise-ruby::default')
+    end
+
+    it 'installs compiler tools for installing ruby gems' do
+      expect(chef_run).to include_recipe('poise-build-essential')
+    end
+
+    it 'installs the Ruby on Rails application' do
+      expect(chef_run).to deploy_application('/opt/agree_io')
+    end
+
+    it 'installs the application config file'
+    it 'starts the web server'
   end
 end

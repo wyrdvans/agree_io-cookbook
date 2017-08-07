@@ -18,3 +18,8 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # a Supermarket.
 #
 # source_url 'https://github.com/<insert_org_here>/agree_io'
+
+depends 'application_ruby'
+depends 'application_git'
+depends 'apt'
+depends 'poise-build-essential'
